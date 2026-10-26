@@ -40,6 +40,6 @@ public class SignupPage : IBasePage
     {
         var headerLocator = _page.Locator("h2:has-text('Enter Account Information')");
 
-        return await headerLocator.IsVisibleAsync();
+        return await Waiter.WaitForCondition(async () => await headerLocator.IsVisibleAsync());
     }
 }

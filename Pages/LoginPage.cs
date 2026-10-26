@@ -20,6 +20,7 @@ public class LoginPage : IBasePage
         var loginHeader = _page.Locator("h2:has-text('Login to your account')");
         var signupHeader = _page.Locator("h2:has-text('New User Signup!')");
 
-        return await loginHeader.IsVisibleAsync() && await signupHeader.IsVisibleAsync();
+        return await Waiter.WaitForCondition(async () =>
+            await loginHeader.IsVisibleAsync() && await signupHeader.IsVisibleAsync());
     }
 }
