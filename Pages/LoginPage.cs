@@ -11,9 +11,9 @@ public class LoginPage : IBasePage
         _page = page;
     }
 
-    public ILocator SignupNameInput => _page.Locator("[data-qa='signup-name']");
-    public ILocator SignupEmailInput => _page.Locator("[data-qa='signup-email']");
-    public ILocator SignupButton => _page.Locator("[data-qa='signup-button']");
+    public ILocator SignupNameInput => _page.GetByTestId("signup-name");
+    public ILocator SignupEmailInput => _page.GetByTestId("signup-email");
+    public ILocator SignupButton => _page.GetByTestId("signup-button");
 
     public async Task<bool> IsOnThisPageAsync()
     {

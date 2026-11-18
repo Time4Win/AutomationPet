@@ -21,8 +21,9 @@ public class Hooks
     [BeforeTestRun]
     public static async Task BeforeTestRun()
     {
-        Program.Main(["install"]);
+        Program.Main(["install"]); 
         _playwright = await Playwright.CreateAsync();
+        _playwright.Selectors.SetTestIdAttribute("data-qa");
 
         // Launch Chromium instance
         _browser = await _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
