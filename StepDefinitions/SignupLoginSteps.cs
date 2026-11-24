@@ -74,9 +74,8 @@ namespace AutomationExercise.Tests.StepDefinitions
         public async Task WhenIEnterNewPasswordInAccountInformation()
         {
             _context.Password = _faker.Internet.Password(8);
-           
-            var passwordInput = _page.Locator("[data-qa='password']");
-            await passwordInput.FillAsync(_context.Password);
+
+            await _signupPage.PasswordInput.FillAsync(_context.Password);
 
             Console.WriteLine($"[TEST DATA] Unique Name: {_context.UniqueName}");
             Console.WriteLine($"[TEST DATA] Email: {_context.Email}");
